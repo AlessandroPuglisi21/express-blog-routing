@@ -10,18 +10,11 @@ router.get("/", (req,res) =>{
     res.json(posts)
 })
 
-
-module.exports = router
-
 //! Show 
 
 router.get("/:id", (req,res) => {
     const id = req.params.id
-    console.log(`Ecco il post con id ${id}`)
-
- const post = posts.find((p) => p.tags === id)
-
- res.json(post)
+    res.send(`Ecco il post con id ${id}`)
  })
 
 //! Store 
@@ -50,3 +43,5 @@ router.delete("/:id", (req,res) => {
     const id = req.params.id
     res.send(`Elimino il post con Id: ${id}`)
 })
+
+module.exports = router
